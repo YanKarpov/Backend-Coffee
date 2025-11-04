@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MenuModule } from './menu/menu.module';
-
+import { VkModule } from './vk/vk.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -23,6 +23,7 @@ import { MenuModule } from './menu/menu.module';
       }),
     }),
     MenuModule,
+    VkModule,
   ],
 })
 export class AppModule {}
