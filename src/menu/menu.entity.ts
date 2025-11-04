@@ -8,6 +8,9 @@ export class MenuItem {
   @Column()
   title: string;
 
+  @Column({ type: 'text', nullable: true })
+  description?: string;
+
   @Column('decimal', { precision: 10, scale: 2 })
   price: number;
 }

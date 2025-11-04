@@ -14,9 +14,21 @@ export class MenuService implements OnModuleInit {
     const count = await this.menuRepository.count();
     if (count === 0) {
       const items = [
-        { title: 'Эспрессо', price: 120 },
-        { title: 'Капучино', price: 180 },
-        { title: 'Латте', price: 200 },
+        {
+          title: 'Эспрессо',
+          price: 120,
+          description: 'Классический чёрный кофе с насыщенным вкусом',
+        },
+        {
+          title: 'Капучино',
+          price: 180,
+          description: 'Эспрессо с горячим молоком и густой молочной пеной',
+        },
+        {
+          title: 'Латте',
+          price: 200,
+          description: 'Мягкий кофейный напиток с большим количеством молока',
+        },
       ];
       await this.menuRepository.save(items);
       console.log('Данные успешно добавлены');
