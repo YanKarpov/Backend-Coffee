@@ -3,7 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+import { DeliveryAddress } from '../delivery/address.entity';
 
 @Entity('orders')
 export class Order {
@@ -16,9 +19,9 @@ export class Order {
   @Column()
   phone: string;
 
-  // Можно связать с таблицей адресов позже, пока просто число
-  @Column()
-  addressId: number;
+  @ManyToOne(() => DeliveryAddress, { eager: true })
+  @JoinColumn({ name: 'addressId' })
+  address: DeliveryAddress;
 
   @Column('json')
   items: { id: number; quantity: number }[];
