@@ -1,5 +1,4 @@
-// src/orders/orders.controller.ts
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 
@@ -8,7 +7,12 @@ export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
   @Post()
-  createOrder(@Body() createOrderDto: CreateOrderDto) {
-    return this.ordersService.createOrder(createOrderDto);
+  async create(@Body() dto: CreateOrderDto) {
+    return this.ordersService.createOrder(dto);
+  }
+
+  @Get()
+  async findAll() {
+    return this.ordersService.getAllOrders();
   }
 }
