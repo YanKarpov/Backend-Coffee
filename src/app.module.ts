@@ -3,6 +3,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MenuModule } from './menu/menu.module';
 import { VkModule } from './vk/vk.module';
+import { OrdersModule } from './orders/orders.module';
+import { DeliveryModule } from './delivery/delivery.module';
+import { TelegramModule } from './telegram/telegram.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -24,6 +27,9 @@ import { VkModule } from './vk/vk.module';
     }),
     MenuModule,
     VkModule,
+    OrdersModule,
+    DeliveryModule,
+    TelegramModule,
   ],
 })
 export class AppModule {}
